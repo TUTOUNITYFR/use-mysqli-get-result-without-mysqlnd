@@ -41,4 +41,8 @@ $result = get_result($stmt);
 while ( $data = array_shift($result) ) {
     echo $data["x"];
 }
+
+// Or return the object
+// return array_shift($result);
+
 ```
