@@ -34,15 +34,18 @@ function get_result(\mysqli_stmt $statement)
 
 Then, to retrieve data from your database with a prepared statement, use :
 ```php
+$database = $connect->getdbconnect();
+
 $stmt = $database->prepare('SELECT x FROM y WHERE z = ?');
 $stmt->bind_param('s', $z);
 $stmt->execute();
+
 $result = get_result($stmt);
 while ( $data = array_shift($result) ) {
     echo $data["x"];
 }
 
-// Or return the object
+// Or, instead of the while loop, return the object :
 // return array_shift($result);
 
 ```
